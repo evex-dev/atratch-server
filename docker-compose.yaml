@@ -1,0 +1,37 @@
+services:
+  postgres:
+    container_name: postgres-db
+    image: postgres:17-alpine
+    restart: always
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - ./db/postgres.init:/docker-entrypoint-initdb.d
+      - postgres-store:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  redis:
+    container_name: redis-db
+    image: redis:7-alpine
+    restart: always
+    # ports:
+    #   - "6379:6379"
+    command: ["redis-server", "--requirepass","${REDIS_PASSWORD}"]
+    volumes:
+      - redis-store:/data
+  app:
+    container_name: app
+    restart: none
+    build: ./app/
+    ports:
+      - 3000:3000
+      - 9229:9229
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - .env
+volumes:
+  postgres-store:
+  redis-store:

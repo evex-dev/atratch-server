@@ -1,0 +1,26 @@
+{
+	"name": "app",
+	"type": "module",
+	"scripts": {
+		"dev": "tsx watch src/index.ts",
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"codegen": "sh -c 'lex gen-server ./src/appview/lexicon ../lexicons/com/atproto/*/* ../lexicons/land/evex/*/*'"
+	},
+	"dependencies": {
+		"@atproto/api": "^0.13.23",
+		"@atproto/jwk-jose": "^0.1.2",
+		"@atproto/lexicon": "^0.4.4",
+		"@atproto/oauth-client-node": "^0.2.5",
+		"@atproto/xrpc": "^0.6.5",
+		"@hono/node-server": "^1.13.7",
+		"hono": "^4.6.15",
+		"multiformats": "^13.3.1"
+	},
+	"devDependencies": {
+		"@atproto/lex-cli": "^0.5.4",
+		"@types/node": "^20.11.17",
+		"esbuild": "^0.24.2",
+		"tsx": "^4.7.1"
+	}
+}
