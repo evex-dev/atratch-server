@@ -30,7 +30,7 @@
 		"@atproto/lex-cli": "^0.5.4",
 		"@biomejs/biome": "^1.9.4",
 		"@types/express": "^5.0.0",
-		"@types/node": "^20.17.10",
+		"@types/node": "^22.10.5",
 		"esbuild": "^0.24.2",
 		"tsx": "^4.7.1",
 		"typescript": "^5.7.2"
