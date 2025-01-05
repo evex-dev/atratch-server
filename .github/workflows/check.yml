@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deps cache (restore)
+      - name: Deps cache
         id: cache
         uses: actions/cache@v4
         with:
