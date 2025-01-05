@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { SECP256K1_JWT_ALG, parseDidKey } from "@atproto/crypto";
+import { DID_KEY_PREFIX, SECP256K1_JWT_ALG, parseDidKey, parseMultikey } from "@atproto/crypto";
 import { IdResolver, MemoryCache } from "@atproto/identity";
 import {
 	AuthRequiredError,
@@ -79,7 +79,7 @@ const verifySignatureWithKey: VerifySignatureWithKeyFn = async (
 	alg: string,
 ) => {
 	if (alg === SECP256K1_JWT_ALG) {
-		const parsed = parseDidKey(didKey);
+		const parsed = didKey.startsWith(DID_KEY_PREFIX)?parseDidKey(didKey):parseMultikey(didKey);
 		if (alg !== parsed.jwtAlg) {
 			throw new Error(`Expected key alg ${alg}, got ${parsed.jwtAlg}`);
 		}
@@ -104,6 +104,6 @@ const bearerTokenFromReq = (c: Context) => {
 	return header.slice(BEARER.length).trim();
 };
 
-function ui8ToString(ui8: Uint8Array, encoding: string): string {
-	return new TextDecoder(encoding).decode(ui8);
+function ui8ToString(ui8: Uint8Array, encoding: BufferEncoding): string {
+	return Buffer.from(ui8).toString(encoding)
 }
