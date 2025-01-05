@@ -1,5 +1,5 @@
-import { createServer } from "./lexicon/index";
 import { checkAuthFactory } from "./auth";
+import { createServer } from "./lexicon/index";
 
 export default function server() {
 	// const server = new Hono();
