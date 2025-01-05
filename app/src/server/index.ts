@@ -1,11 +1,11 @@
-import {Hono} from "hono"
+import { Hono } from "hono";
 
 export default function createServer() {
-  const server = new Hono()
+	const server = new Hono();
 
-  server.get('/', (c) => {
-    return c.text('server test')
-  })
+	server.get("/", (c) => {
+		return c.text("server test");
+	});
 
-  return server
+	return server;
 }

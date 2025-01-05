@@ -1,3 +1,3 @@
-export type appviewContext={
-    url:string
-}
+export type appviewContext = {
+	url: string;
+};

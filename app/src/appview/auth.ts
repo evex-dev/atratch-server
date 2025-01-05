@@ -16,8 +16,10 @@ type authParam = Parameters<HonoAuthVerifier>[0];
 type authSuccess = { credentials: { type: "standard"; iss: string; aud: string } };
 type authMissing = { credentials: undefined };
 
-export function checkAuthFactory(p:{ ownDid: string; must: true }): (arg0: authParam) => Promise<authSuccess>;
-export function checkAuthFactory(p:{ ownDid: string; must: false }): (arg0: authParam) => Promise<authSuccess|authMissing>;
+export function checkAuthFactory(p: { ownDid: string; must: true }): (arg0: authParam) => Promise<authSuccess>;
+export function checkAuthFactory(p: { ownDid: string; must: false }): (
+	arg0: authParam,
+) => Promise<authSuccess | authMissing>;
 export function checkAuthFactory({ ownDid, must }: { ownDid: string; must: boolean }) {
 	return async ({ ctx }: authParam) => {
 		//Bearer以外(Basicとか)は管理者用っぽいのでBearerだけでいいはず
