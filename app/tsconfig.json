@@ -8,7 +8,7 @@
 		"moduleResolution": "bundler",
 		"jsx": "react-jsx",
 		"jsxImportSource": "hono/jsx",
-		"outDir": "dist",
-		"noImplicitAny": false
+		"noImplicitAny": false,
+		"noEmit": true
 	}
 }

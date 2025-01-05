@@ -1,6 +1,5 @@
 {
 	"name": "app",
-	"type": "module",
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
 		"build": "node ./esbuild.mjs",
