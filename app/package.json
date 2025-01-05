@@ -5,7 +5,7 @@
 		"build": "node ./esbuild.mjs",
 		"start": "node dist/index.js",
 		"codegen": "sh -c 'lex gen-server ./src/appview/lexicon ../lexicons/com/atproto/*/* ../lexicons/land/evex/*/*'",
-		"typecheck":"tsc --noEmit"
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@atproto/api": "^0.13.23",
@@ -25,6 +25,7 @@
 	},
 	"devDependencies": {
 		"@atproto/lex-cli": "^0.5.4",
+		"@biomejs/biome": "^1.9.4",
 		"@types/express": "^5.0.0",
 		"@types/node": "^20.11.17",
 		"esbuild": "^0.24.2",
