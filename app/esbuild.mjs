@@ -1,5 +1,5 @@
-import esbuild from "esbuild";
 import { builtinModules } from "node:module";
+import esbuild from "esbuild";
 esbuild
 	.build({
 		entryPoints: ["./src/index.ts"],
@@ -12,7 +12,8 @@ esbuild
 			...builtinModules, // Node.js 標準モジュール
 			...builtinModules.map((mod) => `node:${mod}`), // ESM対応
 			//"*", // すべてのモジュールを外部化
-		  ],
-		resolveExtensions: [".ts", ".js"],logLevel:"info"
+		],
+		resolveExtensions: [".ts", ".js"],
+		logLevel: "info",
 	})
 	.catch(() => process.exit(1));
