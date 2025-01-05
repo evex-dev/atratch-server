@@ -37,13 +37,13 @@ importers:
         version: '@jsr/evex__xrpc-hono@0.2.2'
       '@hono/node-server':
         specifier: ^1.13.7
-        version: 1.13.7(hono@4.6.15)
+        version: 1.13.7(hono@4.6.16)
       express:
         specifier: ^4.21.2
         version: 4.21.2
       hono:
-        specifier: ^4.6.15
-        version: 4.6.15
+        specifier: ^4.6.16
+        version: 4.6.16
       key-encoder:
         specifier: ^2.0.3
         version: 2.0.3
@@ -837,8 +837,8 @@ packages:
   hmac-drbg@1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==}
 
-  hono@4.6.15:
-    resolution: {integrity: sha512-OiQwvAOAaI2JrABBH69z5rsctHDzFzIKJge0nYXgtzGJ0KftwLWcBXm1upJC23/omNRtnqM0gjRMbtXshPdqhQ==}
+  hono@4.6.16:
+    resolution: {integrity: sha512-iE6xOPwDYlfnZFwk6BfIMMIH4WZm3pPhz6rc1uJM/OPew0pjG5K6p8WTLaMBY1/szF/T0TaEjprMpwn16BA0NQ==}
     engines: {node: '>=16.9.0'}
 
   http-errors@2.0.0:
@@ -1538,9 +1538,9 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@hono/node-server@1.13.7(hono@4.6.15)':
+  '@hono/node-server@1.13.7(hono@4.6.16)':
     dependencies:
-      hono: 4.6.15
+      hono: 4.6.16
 
   '@ipld/dag-cbor@7.0.3':
     dependencies:
@@ -1551,7 +1551,7 @@ snapshots:
     dependencies:
       '@atproto/lexicon': 0.4.4
       '@atproto/xrpc-server': 0.7.4
-      hono: 4.6.15
+      hono: 4.6.16
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -2003,7 +2003,7 @@ snapshots:
       minimalistic-assert: 1.0.1
       minimalistic-crypto-utils: 1.0.1
 
-  hono@4.6.15: {}
+  hono@4.6.16: {}
 
   http-errors@2.0.0:
     dependencies:
