@@ -1,0 +1,40 @@
+{
+	"lexicon": 1,
+	"id": "land.evex.atratch.test",
+	"defs": {
+		"main": {
+			"type": "procedure",
+			"description": "echo paramater",
+			"input": {
+				"encoding": "application/json",
+				"schema": {
+					"type": "object",
+					"required": ["echo"],
+					"nullable": [],
+					"properties": {
+						"echo": {
+							"type": "string",
+							"description": "echo this paramater"
+						}
+					}
+				}
+			},
+			"output": {
+				"encoding": "application/json",
+				"schema": {
+					"type": "object",
+					"required": ["echo"],
+					"properties": {
+						"echo": {
+							"type": "string"
+						},
+						"you": {
+							"type": "string",
+							"format": "did"
+						}
+					}
+				}
+			}
+		}
+	}
+}

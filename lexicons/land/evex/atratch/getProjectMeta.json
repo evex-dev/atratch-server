@@ -1,0 +1,38 @@
+{
+	"lexicon": 1,
+	"id": "land.evex.atratch.getProjectMeta",
+	"defs": {
+		"main": {
+			"type": "query",
+			"description": "Gets project metadata views for a project (by AT-URI).",
+			"parameters": {
+				"type": "params",
+				"required": ["uri"],
+				"properties": {
+					"uri": {
+						"type": "string",
+						"description": "a project AT-URI to return hydrated views for.",
+						"format": "at-uri"
+					}
+				}
+			},
+			"output": {
+				"encoding": "application/json",
+				"schema": {
+					"type": "object",
+					"required": ["project"],
+					"properties": {
+						"project": {
+							"type": "ref",
+							"ref": "land.evex.atratch.defs#projectMeta"
+						},
+						"you": {
+							"type": "string",
+							"format": "did"
+						}
+					}
+				}
+			}
+		}
+	}
+}

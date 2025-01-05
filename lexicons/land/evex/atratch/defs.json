@@ -1,0 +1,15 @@
+{
+	"lexicon": 1,
+	"id": "land.evex.atratch.defs",
+	"defs": {
+		"projectMeta": {
+			"type": "object",
+			"required": ["title", "description", "credit"],
+			"properties": {
+				"title": { "type": "string" },
+				"description": { "type": "string" },
+				"credit": { "type": "string" }
+			}
+		}
+	}
+}
