@@ -7,7 +7,7 @@ import { lexicons } from '../../../../lexicons'
 import { isObj, hasProp } from '../../../../util'
 import { CID } from 'multiformats/cid'
 import { HandlerAuth, HandlerPipeThrough } from '@atproto/xrpc-server'
-import * as ComAtprotoServerDefs from '..\server\defs'
+import * as ComAtprotoServerDefs from '../server/defs'
 
 export interface QueryParams {
   sort: 'recent' | 'usage' | (string & {})

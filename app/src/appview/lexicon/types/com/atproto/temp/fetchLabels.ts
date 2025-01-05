@@ -7,7 +7,7 @@ import { lexicons } from '../../../../lexicons'
 import { isObj, hasProp } from '../../../../util'
 import { CID } from 'multiformats/cid'
 import { HandlerAuth, HandlerPipeThrough } from '@atproto/xrpc-server'
-import * as ComAtprotoLabelDefs from '..\label\defs'
+import * as ComAtprotoLabelDefs from '../label/defs'
 
 export interface QueryParams {
   since?: number

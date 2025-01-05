@@ -8,7 +8,7 @@ import { isObj, hasProp } from '../../../../util'
 import { CID } from 'multiformats/cid'
 import { HandlerAuth, HandlerPipeThrough } from '@atproto/xrpc-server'
 import * as ComAtprotoAdminDefs from './defs'
-import * as ComAtprotoRepoStrongRef from '..\repo\strongRef'
+import * as ComAtprotoRepoStrongRef from '../repo/strongRef'
 
 export interface QueryParams {
   did?: string
