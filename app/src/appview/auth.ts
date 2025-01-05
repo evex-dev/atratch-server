@@ -59,7 +59,10 @@ export function checkAuthFactory({ ownDid, must }: { ownDid: string; must: boole
 
 const getSigningKey = async (iss: string, forceRefresh: boolean): Promise<string> => {
 	const [did, serviceId] = iss.split("#");
+	console.log(`iss: ${iss}`)
 	const identity = await idResolver.did.resolve(did, forceRefresh);
+	console.log("identity:")
+	console.dir(identity)
 	if (!identity || !identity.verificationMethod) throw new AuthRequiredError("identity unknown");
 	for (const method of identity.verificationMethod) {
 		if (method.id === iss) {
