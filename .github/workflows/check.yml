@@ -46,7 +46,7 @@ jobs:
       - name: Biome
         #if: ${{ success() || failure() }}
         if: ${{ !cancelled() }}
-        run: pnpm biome ci
+        run: pnpm exec biome ci
         working-directory: ./app
 
       - name: Type check
