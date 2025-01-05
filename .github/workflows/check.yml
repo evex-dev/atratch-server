@@ -23,9 +23,9 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: |
-            ./node_modules
+            ./app/node_modules
             ~/.local/share/pnpm/store
-          key: pnpm-v${{ env.PNPM_VERSION }}-${{ hashFiles('pnpm-lock.yaml') }}
+          key: pnpm-v${{ env.PNPM_VERSION }}-${{ hashFiles('app/pnpm-lock.yaml') }}
           restore-keys: pnpm-v${{ env.PNPM_VERSION }}-
 
       - name: Setup Node.js
@@ -38,7 +38,10 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
-          run_install: true
+          run_install: false
+
+      - name: Install Deps
+        run: pnpm install
 
       - name: Biome
         #if: ${{ success() || failure() }}
