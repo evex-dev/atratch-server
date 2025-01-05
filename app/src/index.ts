@@ -15,7 +15,7 @@ app.get("/", (c) => {
 	);
 });
 
-app.route("/", appview());
+app.route("/", appview(context));
 app.route("/api", server());
 app.route("/.well-known", wellKnown(context));
 
