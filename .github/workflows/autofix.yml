@@ -91,7 +91,7 @@ jobs:
             fi
 
             body+="\n## Log:\n\n"
-            body+="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/job/${{ github.job }}\n"
+            body+="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n"
 
-            gh pr create --base ${{ github.ref_name }} --title "Auto format" --body "$body"
+            echo "$body" | gh pr create --base ${{ github.ref_name }} --title "Auto format" --body-file -
           fi
