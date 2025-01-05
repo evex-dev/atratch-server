@@ -8,7 +8,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@atproto/api": "^0.13.23",
+		"@atproto/api": "^0.13.25",
 		"@atproto/crypto": "^0.4.2",
 		"@atproto/identity": "^0.4.3",
 		"@atproto/jwk-jose": "^0.1.2",
