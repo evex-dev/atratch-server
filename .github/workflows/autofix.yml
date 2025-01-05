@@ -81,17 +81,20 @@ jobs:
             git commit -m "Auto format"
             git push -u origin autofix-${{ github.sha }}
 
-            echo "## Note\n\n" >> /tmp/pr_body
+            echo "## Note" >> /tmp/pr_body
+            echo >> /tmp/pr_body
             if [ "${{ inputs.unsafe }}" = "true" ]; then
-              echo "- Contains unsafe changes\n" >> /tmp/pr_body
+              echo "- Contains unsafe changes" >> /tmp/pr_body
             elif [ "${{ steps.biome.outputs.status }}" -ne 0 ]; then
-              echo "- Incomplete fix\n" >> /tmp/pr_body
+              echo "- Incomplete fix" >> /tmp/pr_body
             else
-              echo "nothing to write\n" >> /tmp/pr_body
+              echo "nothing to write" >> /tmp/pr_body
             fi
 
-            echo "\n## Log:\n\n" >> /tmp/pr_body
-            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n" >> /tmp/pr_body
+            echo >> /tmp/pr_body
+            echo "## Log:" >> /tmp/pr_body
+            echo >> /tmp/pr_body
+            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> /tmp/pr_body
 
             gh pr create --base ${{ github.ref_name }} --title "Auto format" --body-file /tmp/pr_body
           fi
