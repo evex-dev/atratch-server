@@ -1,10 +1,11 @@
+import type { appviewContext } from "../types";
 import { checkAuthFactory } from "./auth";
 import { createServer } from "./lexicon/index";
 
-export default function server() {
+export default function server(ctx: appviewContext) {
 	// const server = new Hono();
 	const s = createServer();
-	const auth = checkAuthFactory({ ownDid: "did:example", must: false });
+	const auth = checkAuthFactory({ ownDid: `did:web:${ctx.url}`, must: false });
 	s.land.evex.atratch.getProjectMeta({
 		auth,
 		handler: (c) => {
