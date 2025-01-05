@@ -19,7 +19,7 @@
 		"@evex/xrpc-hono": "npm:@jsr/evex__xrpc-hono@^0.2.2",
 		"@hono/node-server": "^1.13.7",
 		"express": "^4.21.2",
-		"hono": "^4.6.15",
+		"hono": "^4.6.16",
 		"key-encoder": "^2.0.3",
 		"multiformats": "^13.3.1"
 	},
