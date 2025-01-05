@@ -79,7 +79,7 @@ const verifySignatureWithKey: VerifySignatureWithKeyFn = async (
 	alg: string,
 ) => {
 	if (alg === SECP256K1_JWT_ALG) {
-		const parsed = didKey.startsWith(DID_KEY_PREFIX)?parseDidKey(didKey):parseMultikey(didKey);
+		const parsed = didKey.startsWith(DID_KEY_PREFIX) ? parseDidKey(didKey) : parseMultikey(didKey);
 		if (alg !== parsed.jwtAlg) {
 			throw new Error(`Expected key alg ${alg}, got ${parsed.jwtAlg}`);
 		}
@@ -105,5 +105,5 @@ const bearerTokenFromReq = (c: Context) => {
 };
 
 function ui8ToString(ui8: Uint8Array, encoding: BufferEncoding): string {
-	return Buffer.from(ui8).toString(encoding)
+	return Buffer.from(ui8).toString(encoding);
 }
