@@ -78,19 +78,14 @@ const verifySignatureWithKey: VerifySignatureWithKeyFn = async (
 	sigBytes: Uint8Array,
 	alg: string,
 ) => {
-	try {
-		if (alg === SECP256K1_JWT_ALG) {
-			const parsed = parseDidKey(didKey);
-			if (alg !== parsed.jwtAlg) {
-				throw new Error(`Expected key alg ${alg}, got ${parsed.jwtAlg}`);
-			}
-			return verifySig(parsed.keyBytes, msgBytes, sigBytes);
+	if (alg === SECP256K1_JWT_ALG) {
+		const parsed = parseDidKey(didKey);
+		if (alg !== parsed.jwtAlg) {
+			throw new Error(`Expected key alg ${alg}, got ${parsed.jwtAlg}`);
 		}
-		return cryptoVerifySignatureWithKey(didKey, msgBytes, sigBytes, alg);
-	} catch (e) {
-		// console.error(e);
-		throw e;
+		return verifySig(parsed.keyBytes, msgBytes, sigBytes);
 	}
+	return cryptoVerifySignatureWithKey(didKey, msgBytes, sigBytes, alg);
 };
 const verifySig = (publicKey: Uint8Array, data: Uint8Array, sig: Uint8Array) => {
 	const keyEncoder = new KeyEncoder("secp256k1");
