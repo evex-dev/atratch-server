@@ -2,6 +2,12 @@ name: Auto fix
 
 on:
   workflow_dispatch:
+    inputs:
+      unsafe:
+        type: boolean
+        required: false
+        description: 'Apply unsafe changes'
+        default: false
 
 permissions:
   contents: write
@@ -13,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NODE_VERSION: 22
+      NODE_VERSION: 20
       PNPM_VERSION: 9
 
     defaults:
@@ -48,11 +54,18 @@ jobs:
       - name: Install Deps
         run: pnpm install
 
+      - name: Unsafe setting
+        id: unsafe
+        if: ${{ inputs.unsafe }}
+        run: |
+          echo 'arg=--unsafe' >> $GITHUB_OUTPUT
+
       - name: Biome
-        #if: ${{ success() || failure() }}
-        if: ${{ !cancelled() }}
-        run: pnpm exec biome check --write
-        working-directory: ./app
+        id: biome
+        shell: /usr/bin/bash {0}
+        run: |
+          pnpm exec biome check --write ${{ steps.unsafe.outputs.arg }}
+          echo 'status=$?' >> $GITHUB_OUTPUT
 
       - name: Git
         env:
@@ -65,5 +78,17 @@ jobs:
             git commit -m "Auto format"
             git push -u origin autofix-${{ github.sha }}
 
-            gh pr create --base ${{ github.ref_name }} --title "Auto format" --body ""
+            body="## Note\n\n"
+            if [ "${{ inputs.unsafe }}" = "true" ]; then
+              body+="- Contains unsafe changes\n"
+            elif [ "${{ steps.biome.outputs.status }}" -ne 0 ]; then
+              body+="- Incomplete fix\n"
+            else
+              body+="nothing to write\n"
+            fi
+
+            body+="\n## Log:\n\n"
+            body+="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/job/${{ github.job }}\n"
+
+            gh pr create --base ${{ github.ref_name }} --title "Auto format" --body "$body"
           fi
