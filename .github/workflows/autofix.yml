@@ -60,6 +60,9 @@ jobs:
         run: |
           echo 'arg=--unsafe' >> $GITHUB_OUTPUT
 
+      - name: Switch branch
+        run: git switch -c autofix-${{ github.sha }}
+
       - name: Biome
         id: biome
         shell: /usr/bin/bash {0}
