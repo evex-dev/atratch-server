@@ -1,6 +1,6 @@
-import { NodeOAuthClient, type NodeSavedSession, type NodeSavedState } from "@atproto/oauth-client-node";
-import { JoseKey } from "@atproto/jwk-jose";
 import { Agent } from "@atproto/api";
+import { JoseKey } from "@atproto/jwk-jose";
+import { NodeOAuthClient, type NodeSavedSession, type NodeSavedState } from "@atproto/oauth-client-node";
 import { Hono } from "hono";
 
 const client = new NodeOAuthClient({
