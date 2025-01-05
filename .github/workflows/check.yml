@@ -48,5 +48,5 @@ jobs:
 
       - name: Type check
         if: ${{ !cancelled() }}
-        run: pnpx tsc --noEmit
+        run: pnpm run typecheck
         working-directory: ./app

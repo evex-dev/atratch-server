@@ -4,7 +4,8 @@
 		"dev": "tsx watch src/index.ts",
 		"build": "node ./esbuild.mjs",
 		"start": "node dist/index.js",
-		"codegen": "sh -c 'lex gen-server ./src/appview/lexicon ../lexicons/com/atproto/*/* ../lexicons/land/evex/*/*'"
+		"codegen": "sh -c 'lex gen-server ./src/appview/lexicon ../lexicons/com/atproto/*/* ../lexicons/land/evex/*/*'",
+		"typecheck":"tsc --noEmit"
 	},
 	"dependencies": {
 		"@atproto/api": "^0.13.23",
