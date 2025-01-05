@@ -39,7 +39,7 @@ export function checkAuthFactory({ ownDid, must }: { ownDid: string; must: boole
 		if (payload.aud !== ownDid)
 			throw new AuthRequiredError("jwt audience does not match service did", "BadJwtAudience");
 		//jwtのlxmを検証
-		const nsid = parseUrlNsid(ctx.req.url);
+		const nsid = parseUrlNsid(ctx.req.path);
 		if (payload.lxm !== nsid) {
 			throw new AuthRequiredError(
 				payload.lxm !== undefined
