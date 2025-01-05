@@ -60,10 +60,7 @@ export function checkAuthFactory({ ownDid, must }: { ownDid: string; must: boole
 const getSigningKey = async (iss: string, forceRefresh: boolean): Promise<string> => {
 	const [did, serviceId] = iss.split("#");
 	const keyId = serviceId === "atproto_labeler" ? "atproto_label" : "atproto";
-	console.log(`iss: ${iss}`);
 	const identity = await idResolver.did.resolve(did, forceRefresh);
-	console.log("identity:");
-	console.dir(identity);
 	if (!identity || !identity.verificationMethod) throw new AuthRequiredError("identity unknown");
 	for (const method of identity.verificationMethod) {
 		if (method.id === [did, keyId].join("#")) {
@@ -80,14 +77,19 @@ const verifySignatureWithKey: VerifySignatureWithKeyFn = async (
 	sigBytes: Uint8Array,
 	alg: string,
 ) => {
-	if (alg === SECP256K1_JWT_ALG) {
-		const parsed = parseDidKey(didKey);
-		if (alg !== parsed.jwtAlg) {
-			throw new Error(`Expected key alg ${alg}, got ${parsed.jwtAlg}`);
+	try {
+		if (alg === SECP256K1_JWT_ALG) {
+			const parsed = parseDidKey(didKey);
+			if (alg !== parsed.jwtAlg) {
+				throw new Error(`Expected key alg ${alg}, got ${parsed.jwtAlg}`);
+			}
+			return verifySig(parsed.keyBytes, msgBytes, sigBytes);
 		}
-		return verifySig(parsed.keyBytes, msgBytes, sigBytes);
+		return cryptoVerifySignatureWithKey(didKey, msgBytes, sigBytes, alg);
+	} catch (e) {
+		console.error(e);
+		throw e;
 	}
-	return cryptoVerifySignatureWithKey(didKey, msgBytes, sigBytes, alg);
 };
 const verifySig = (publicKey: Uint8Array, data: Uint8Array, sig: Uint8Array) => {
 	const keyEncoder = new KeyEncoder("secp256k1");
