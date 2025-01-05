@@ -1,16 +1,16 @@
+import crypto from "node:crypto";
+import { SECP256K1_JWT_ALG, parseDidKey } from "@atproto/crypto";
+import { IdResolver, MemoryCache } from "@atproto/identity";
 import {
 	AuthRequiredError,
+	type VerifySignatureWithKeyFn,
 	cryptoVerifySignatureWithKey,
 	verifyJwt,
-	type VerifySignatureWithKeyFn,
 } from "@atproto/xrpc-server";
+import { parseUrlNsid } from "@atproto/xrpc-server/dist/util";
 import type { HonoAuthVerifier } from "@evex/xrpc-hono";
 import type { Context } from "hono";
-import { IdResolver, MemoryCache } from "@atproto/identity";
-import { parseDidKey, SECP256K1_JWT_ALG } from "@atproto/crypto";
-import crypto from "node:crypto";
 import KeyEncoder from "key-encoder";
-import { parseUrlNsid } from "@atproto/xrpc-server/dist/util";
 const idResolver = new IdResolver({ didCache: new MemoryCache() });
 type authParam = Parameters<HonoAuthVerifier>[0];
 type authSuccess = { credentials: { type: "standard"; iss: string; aud: string } };
@@ -31,7 +31,7 @@ export function checkAuthFactory({ ownDid, must }: { ownDid: string; must: boole
 			}
 		}
 		const jwtStr = bearerTokenFromReq(ctx);
-		console.log(jwtStr)
+		console.log(jwtStr);
 		if (!jwtStr) throw new AuthRequiredError("missing jwt", "MissingJwt");
 		//DID Docから公開鍵を取得してjwtの署名検証
 		const payload = await verifyJwt(jwtStr, null, null, getSigningKey, verifySignatureWithKey);
