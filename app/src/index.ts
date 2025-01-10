@@ -18,6 +18,9 @@ app.get("/", (c) => {
 app.route("/", appview(context));
 app.route("/api", server());
 app.route("/.well-known", wellKnown(context));
+app.get("/build_timestamp",(c)=>{
+	return c.body(process.env.BUILD_TIMESTAMP??"devmode?")
+})
 
 const port = 3000;
 console.log(`Server is running on ${port}`);
