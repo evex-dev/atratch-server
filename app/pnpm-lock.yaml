@@ -33,8 +33,8 @@ importers:
         specifier: ^0.7.4
         version: 0.7.4
       '@evex/xrpc-hono':
-        specifier: npm:@jsr/evex__xrpc-hono@^0.2.3
-        version: '@jsr/evex__xrpc-hono@0.2.3'
+        specifier: npm:@jsr/evex__xrpc-hono@^0.2.4
+        version: '@jsr/evex__xrpc-hono@0.2.4'
       '@hono/node-server':
         specifier: ^1.13.7
         version: 1.13.7(hono@4.6.16)
@@ -540,8 +540,8 @@ packages:
   '@ipld/dag-cbor@7.0.3':
     resolution: {integrity: sha512-1VVh2huHsuohdXC1bGJNE8WR72slZ9XE2T3wbBBq31dm7ZBatmKLLxrB+XAqafxfRFjv08RZmj/W/ZqaM13AuA==}
 
-  '@jsr/evex__xrpc-hono@0.2.3':
-    resolution: {integrity: sha512-HUKl4hTCmgkPjMHZDIPxiVm/47Tmop5n2RZK4v2jRMCuzC28Ojv5JPEZAwP/IBP5R3Egi1px+MTkWCqsKsnhaw==, tarball: https://npm.jsr.io/~/11/@jsr/evex__xrpc-hono/0.2.3.tgz}
+  '@jsr/evex__xrpc-hono@0.2.4':
+    resolution: {integrity: sha512-j5por52lVnWA+rfB9hP6lItUvD9XMYscT/gs9E2PFPHPGynr+8E8m7hVcqd5nEVn1P4VRRHO9BWCILP67ArhCA==, tarball: https://npm.jsr.io/~/11/@jsr/evex__xrpc-hono/0.2.4.tgz}
 
   '@noble/curves@1.7.0':
     resolution: {integrity: sha512-UTMhXK9SeDhFJVrHeUJ5uZlI6ajXg10O6Ddocf9S6GjbSBVZsJo88HzKwXznNfGpMTRDyJkqMjNDPYgf0qFWnw==}
@@ -1638,7 +1638,7 @@ snapshots:
       cborg: 1.10.2
       multiformats: 9.9.0
 
-  '@jsr/evex__xrpc-hono@0.2.3':
+  '@jsr/evex__xrpc-hono@0.2.4':
     dependencies:
       '@atproto/lexicon': 0.4.4
       '@atproto/xrpc-server': 0.7.4

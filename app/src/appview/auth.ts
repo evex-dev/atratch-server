@@ -31,7 +31,6 @@ export function checkAuthFactory({ ownDid, must }: { ownDid: string; must: boole
 			}
 		}
 		const jwtStr = bearerTokenFromReq(ctx);
-		console.log(jwtStr);
 		if (!jwtStr) throw new AuthRequiredError("missing jwt", "MissingJwt");
 		//DID Docから公開鍵を取得してjwtの署名検証
 		const payload = await verifyJwt(jwtStr, null, null, getSigningKey, verifySignatureWithKey);
