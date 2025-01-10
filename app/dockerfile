@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 FROM base AS prod-deps
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile -r
+# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile -r
 
 FROM base AS build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile -r
@@ -14,9 +14,9 @@ COPY . .
 RUN pnpm run build
 
 FROM base
-COPY --from=prod-deps /app/node_modules /app/node_modules
+# COPY --from=prod-deps /app/node_modules /app/node_modules
 COPY --from=build /app/dist /app/dist
-EXPOSE 8000
+EXPOSE 3000
 # RUN chown -R node /app
 # USER node
 CMD [ "pnpm", "start" ]
