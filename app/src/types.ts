@@ -1,4 +1,4 @@
-import type { PrismaClient, Prisma } from "@prisma/client";
+import type { Prisma, PrismaClient } from "@prisma/client";
 import type { DefaultArgs } from "@prisma/client/runtime/library";
 import type { RedisClient } from "./db";
 

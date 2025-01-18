@@ -1,11 +1,11 @@
 import { serve } from "@hono/node-server";
+import { PrismaClient } from "@prisma/client";
 import { Hono } from "hono";
 import appview from "./appview/index.js";
+import { RedisClient } from "./db.js";
 import server from "./server/index.js";
 import type { appviewContext } from "./types.js";
 import { wellKnown } from "./well-known.js";
-import { RedisClient } from "./db.js";
-import { PrismaClient } from "@prisma/client";
 
 const app = new Hono();
 const context: appviewContext = {
