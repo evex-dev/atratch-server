@@ -5,10 +5,12 @@
 	},
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
-		"build": "node ./esbuild.mjs",
+		"build": "prisma generate && node ./esbuild.mjs",
 		"start": "node dist/index.js",
+		"start:prod": "pnpm run migrate && pnpm run start",
 		"codegen": "sh -c 'lex gen-server ./src/appview/lexicon ../lexicons/com/atproto/*/* ../lexicons/land/evex/*/*'",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"migrate": "pnpm prisma migrate deploy"
 	},
 	"dependencies": {
 		"@atproto/api": "^0.13.25",
@@ -21,12 +23,12 @@
 		"@atproto/xrpc-server": "^0.7.4",
 		"@evex/xrpc-hono": "npm:@jsr/evex__xrpc-hono@^0.2.4",
 		"@hono/node-server": "^1.13.7",
+		"@prisma/client": "^6.2.1",
 		"express": "^4.21.2",
 		"hono": "^4.6.16",
 		"ioredis": "^5.4.2",
 		"key-encoder": "^2.0.3",
-		"multiformats": "^13.3.1",
-		"postgres": "^3.4.5"
+		"multiformats": "^13.3.1"
 	},
 	"devDependencies": {
 		"@atproto/lex-cli": "^0.5.4",
@@ -34,6 +36,7 @@
 		"@types/express": "^5.0.0",
 		"@types/node": "^20.17.10",
 		"esbuild": "^0.24.2",
+		"prisma": "^6.2.1",
 		"tsx": "^4.7.1",
 		"typescript": "^5.7.2"
 	}

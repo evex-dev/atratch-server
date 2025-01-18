@@ -4,13 +4,14 @@ import appview from "./appview/index.js";
 import server from "./server/index.js";
 import type { appviewContext } from "./types.js";
 import { wellKnown } from "./well-known.js";
-import { PostgresClient, RedisClient } from "./db.js";
+import { RedisClient } from "./db.js";
+import { PrismaClient } from "@prisma/client";
 
 const app = new Hono();
 const context: appviewContext = {
 	url: "atratch-api.evex.land",
 	redis: new RedisClient(),
-	postgres: new PostgresClient(),
+	postgres: new PrismaClient(),
 };
 app.get("/", (c) => {
 	return c.text(
