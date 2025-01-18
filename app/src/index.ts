@@ -4,10 +4,13 @@ import appview from "./appview/index.js";
 import server from "./server/index.js";
 import type { appviewContext } from "./types.js";
 import { wellKnown } from "./well-known.js";
+import { PostgresClient, RedisClient } from "./db.js";
 
 const app = new Hono();
 const context: appviewContext = {
 	url: "atratch-api.evex.land",
+	redis: new RedisClient(),
+	postgres: new PostgresClient(),
 };
 app.get("/", (c) => {
 	return c.text(
@@ -18,9 +21,9 @@ app.get("/", (c) => {
 app.route("/", appview(context));
 app.route("/api", server());
 app.route("/.well-known", wellKnown(context));
-app.get("/build_timestamp",(c)=>{
-	return c.body(process.env.BUILD_TIMESTAMP??"devmode?")
-})
+app.get("/build_timestamp", (c) => {
+	return c.body(process.env.BUILD_TIMESTAMP ?? "devmode?");
+});
 
 const port = 3000;
 console.log(`Server is running on ${port}`);

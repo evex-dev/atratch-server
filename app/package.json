@@ -23,8 +23,10 @@
 		"@hono/node-server": "^1.13.7",
 		"express": "^4.21.2",
 		"hono": "^4.6.16",
+		"ioredis": "^5.4.2",
 		"key-encoder": "^2.0.3",
-		"multiformats": "^13.3.1"
+		"multiformats": "^13.3.1",
+		"postgres": "^3.4.5"
 	},
 	"devDependencies": {
 		"@atproto/lex-cli": "^0.5.4",
