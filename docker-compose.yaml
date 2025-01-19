@@ -22,7 +22,7 @@ services:
       - redis-store:/data
   app:
     container_name: app
-    restart: none
+    restart: always
     build: ./app/
     ports:
       - 3000:3000
