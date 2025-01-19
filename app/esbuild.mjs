@@ -15,8 +15,8 @@ esbuild
 		],
 		resolveExtensions: [".ts", ".js"],
 		logLevel: "info",
-		define:{
-			"process.env.BUILD_TIMESTAMP":JSON.stringify(new Date().toLocaleString("ja"))
-		}
+		define: {
+			"process.env.BUILD_TIMESTAMP": JSON.stringify(new Date().toLocaleString("ja")),
+		},
 	})
 	.catch(() => process.exit(1));
