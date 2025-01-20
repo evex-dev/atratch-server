@@ -4085,13 +4085,50 @@ export const schemaDict = {
       },
     },
   },
+  LandEvexAtratchAssetMap: {
+    lexicon: 1,
+    id: 'land.evex.atratch.assetMap',
+    defs: {
+      main: {
+        type: 'record',
+        description: "Record declaring a 'like' of a piece of subject content.",
+        key: 'tid',
+        record: {
+          type: 'object',
+          required: ['map'],
+          properties: {
+            map: {
+              type: 'array',
+              items: {
+                type: 'ref',
+                ref: 'lex:land.evex.atratch.assetMap#assetPair',
+              },
+            },
+          },
+        },
+      },
+      assetPair: {
+        type: 'object',
+        required: ['hash', 'blob'],
+        properties: {
+          hash: {
+            type: 'string',
+            description: "scratch's md5 hash",
+          },
+          blob: {
+            type: 'blob',
+          },
+        },
+      },
+    },
+  },
   LandEvexAtratchDefs: {
     lexicon: 1,
     id: 'land.evex.atratch.defs',
     defs: {
       projectMeta: {
         type: 'object',
-        required: ['title', 'description', 'credit'],
+        required: ['title', 'description'],
         properties: {
           title: {
             type: 'string',
@@ -4099,16 +4136,44 @@ export const schemaDict = {
           description: {
             type: 'string',
           },
-          credit: {
+        },
+      },
+      projectView: {
+        type: 'object',
+        required: ['meta', 'assetMap', 'projectJson', 'like'],
+        properties: {
+          meta: {
+            type: 'ref',
+            ref: 'lex:land.evex.atratch.defs#projectMeta',
+          },
+          assetMap: {
+            type: 'unknown',
+            description: 'key-value pair of md5 keys and asset URL values.',
+          },
+          projectJson: {
+            type: 'unknown',
+            description: 'project.json',
+          },
+          like: {
+            type: 'integer',
+          },
+        },
+      },
+      viewerState: {
+        type: 'object',
+        required: [],
+        properties: {
+          like: {
             type: 'string',
+            format: 'at-uri',
           },
         },
       },
     },
   },
-  LandEvexAtratchGetProjectMeta: {
+  LandEvexAtratchGetProject: {
     lexicon: 1,
-    id: 'land.evex.atratch.getProjectMeta',
+    id: 'land.evex.atratch.getProject',
     defs: {
       main: {
         type: 'query',
@@ -4132,11 +4197,11 @@ export const schemaDict = {
             properties: {
               project: {
                 type: 'ref',
-                ref: 'lex:land.evex.atratch.defs#projectMeta',
+                ref: 'lex:land.evex.atratch.defs#projectView',
               },
-              you: {
-                type: 'string',
-                format: 'did',
+              viewer: {
+                type: 'ref',
+                ref: 'lex:land.evex.atratch.defs#viewerState',
               },
             },
           },
@@ -4169,40 +4234,37 @@ export const schemaDict = {
       },
     },
   },
-  LandEvexAtratchTest: {
+  LandEvexAtratchProject: {
     lexicon: 1,
-    id: 'land.evex.atratch.test',
+    id: 'land.evex.atratch.project',
     defs: {
       main: {
-        type: 'procedure',
-        description: 'echo paramater',
-        input: {
-          encoding: 'application/json',
-          schema: {
-            type: 'object',
-            required: ['echo'],
-            nullable: [],
-            properties: {
-              echo: {
-                type: 'string',
-                description: 'echo this paramater',
-              },
-            },
-          },
+        type: 'record',
+        description: 'project.json record',
+        key: 'tid',
+        record: {
+          type: 'object',
+          required: [],
+          properties: {},
         },
-        output: {
-          encoding: 'application/json',
-          schema: {
-            type: 'object',
-            required: ['echo'],
-            properties: {
-              echo: {
-                type: 'string',
-              },
-              you: {
-                type: 'string',
-                format: 'did',
-              },
+      },
+    },
+  },
+  LandEvexAtratchProjectMeta: {
+    lexicon: 1,
+    id: 'land.evex.atratch.projectMeta',
+    defs: {
+      main: {
+        type: 'record',
+        description: 'asset map record',
+        key: 'tid',
+        record: {
+          type: 'object',
+          required: ['meta'],
+          properties: {
+            meta: {
+              type: 'ref',
+              ref: 'lex:land.evex.atratch.defs#projectMeta',
             },
           },
         },
@@ -4305,8 +4367,10 @@ export const ids = {
   ComAtprotoTempFetchLabels: 'com.atproto.temp.fetchLabels',
   ComAtprotoTempRequestPhoneVerification:
     'com.atproto.temp.requestPhoneVerification',
+  LandEvexAtratchAssetMap: 'land.evex.atratch.assetMap',
   LandEvexAtratchDefs: 'land.evex.atratch.defs',
-  LandEvexAtratchGetProjectMeta: 'land.evex.atratch.getProjectMeta',
+  LandEvexAtratchGetProject: 'land.evex.atratch.getProject',
   LandEvexAtratchLike: 'land.evex.atratch.like',
-  LandEvexAtratchTest: 'land.evex.atratch.test',
+  LandEvexAtratchProject: 'land.evex.atratch.project',
+  LandEvexAtratchProjectMeta: 'land.evex.atratch.projectMeta',
 }

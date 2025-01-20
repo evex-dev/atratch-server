@@ -1,6 +1,6 @@
 {
 	"lexicon": 1,
-	"id": "land.evex.atratch.getProjectMeta",
+	"id": "land.evex.atratch.getProject",
 	"defs": {
 		"main": {
 			"type": "query",
@@ -22,14 +22,8 @@
 					"type": "object",
 					"required": ["project"],
 					"properties": {
-						"project": {
-							"type": "ref",
-							"ref": "land.evex.atratch.defs#projectMeta"
-						},
-						"you": {
-							"type": "string",
-							"format": "did"
-						}
+						"project": { "type": "ref", "ref": "land.evex.atratch.defs#projectView" },
+						"viewer": {"type":"ref","ref":"land.evex.atratch.defs#viewerState"}
 					}
 				}
 			}

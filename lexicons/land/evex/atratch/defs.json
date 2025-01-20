@@ -4,11 +4,36 @@
 	"defs": {
 		"projectMeta": {
 			"type": "object",
-			"required": ["title", "description", "credit"],
+			"required": ["title", "description"],
 			"properties": {
 				"title": { "type": "string" },
-				"description": { "type": "string" },
-				"credit": { "type": "string" }
+				"description": { "type": "string" }
+			}
+		},
+		"projectView": {
+			"type": "object",
+			"required": ["meta", "assetMap", "projectJson", "like"],
+			"properties": {
+				"meta": {
+					"type": "ref",
+					"ref": "#projectMeta"
+				},
+				"assetMap": {
+					"type": "unknown",
+					"description": "key-value pair of md5 keys and asset URL values."
+				},
+				"projectJson": {
+					"type": "unknown",
+					"description": "project.json"
+				},
+				"like": { "type": "integer" }
+			}
+		},
+		"viewerState": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"like": { "type": "string", "format": "at-uri" }
 			}
 		}
 	}

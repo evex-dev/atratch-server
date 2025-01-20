@@ -89,8 +89,7 @@ import * as ComAtprotoTempAddReservedHandle from './types/com/atproto/temp/addRe
 import * as ComAtprotoTempCheckSignupQueue from './types/com/atproto/temp/checkSignupQueue'
 import * as ComAtprotoTempFetchLabels from './types/com/atproto/temp/fetchLabels'
 import * as ComAtprotoTempRequestPhoneVerification from './types/com/atproto/temp/requestPhoneVerification'
-import * as LandEvexAtratchGetProjectMeta from './types/land/evex/atratch/getProjectMeta'
-import * as LandEvexAtratchTest from './types/land/evex/atratch/test'
+import * as LandEvexAtratchGetProject from './types/land/evex/atratch/getProject'
 
 export const COM_ATPROTO_MODERATION = {
   DefsReasonSpam: 'com.atproto.moderation.defs#reasonSpam',
@@ -1072,25 +1071,14 @@ export class LandEvexAtratchNS {
     this._server = server
   }
 
-  getProjectMeta<AV extends AuthVerifier>(
+  getProject<AV extends AuthVerifier>(
     cfg: ConfigOf<
       AV,
-      LandEvexAtratchGetProjectMeta.Handler<ExtractAuth<AV>>,
-      LandEvexAtratchGetProjectMeta.HandlerReqCtx<ExtractAuth<AV>>
+      LandEvexAtratchGetProject.Handler<ExtractAuth<AV>>,
+      LandEvexAtratchGetProject.HandlerReqCtx<ExtractAuth<AV>>
     >,
   ) {
-    const nsid = 'land.evex.atratch.getProjectMeta' // @ts-ignore
-    return this._server.xrpc.method(nsid, cfg)
-  }
-
-  test<AV extends AuthVerifier>(
-    cfg: ConfigOf<
-      AV,
-      LandEvexAtratchTest.Handler<ExtractAuth<AV>>,
-      LandEvexAtratchTest.HandlerReqCtx<ExtractAuth<AV>>
-    >,
-  ) {
-    const nsid = 'land.evex.atratch.test' // @ts-ignore
+    const nsid = 'land.evex.atratch.getProject' // @ts-ignore
     return this._server.xrpc.method(nsid, cfg)
   }
 }

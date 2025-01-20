@@ -1,4 +1,3 @@
-import { builtinModules } from "node:module";
 import esbuild from "esbuild";
 esbuild
 	.build({

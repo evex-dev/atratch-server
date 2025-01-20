@@ -7,25 +7,22 @@ import { lexicons } from '../../../../lexicons'
 import { isObj, hasProp } from '../../../../util'
 import { CID } from 'multiformats/cid'
 import { HandlerAuth, HandlerPipeThrough } from '@atproto/xrpc-server'
+import * as LandEvexAtratchDefs from './defs'
 
-export interface QueryParams {}
-
-export interface InputSchema {
-  /** echo this paramater */
-  echo: string
-  [k: string]: unknown
+export interface QueryParams {
+  /** a project AT-URI to return hydrated views for. */
+  uri: string
 }
+
+export type InputSchema = undefined
 
 export interface OutputSchema {
-  echo: string
-  you?: string
+  project: LandEvexAtratchDefs.ProjectView
+  viewer?: LandEvexAtratchDefs.ViewerState
   [k: string]: unknown
 }
 
-export interface HandlerInput {
-  encoding: 'application/json'
-  body: InputSchema
-}
+export type HandlerInput = undefined
 
 export interface HandlerSuccess {
   encoding: 'application/json'

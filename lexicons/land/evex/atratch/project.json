@@ -1,0 +1,14 @@
+{
+	"lexicon": 1,
+	"id": "land.evex.atratch.project",
+	"defs": {
+		"main": {
+			"type": "record",
+			"description": "project.json record",
+			"key": "tid",
+			"record": {
+				"type": "object","required":[],"properties":{}
+			}
+		}
+	}
+}

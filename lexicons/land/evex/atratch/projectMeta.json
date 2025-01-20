@@ -1,0 +1,16 @@
+{
+	"lexicon": 1,
+	"id": "land.evex.atratch.projectMeta",
+	"defs": {
+		"main": {
+			"type": "record",
+			"description": "asset map record",
+			"key": "tid",
+			"record": {
+				"type": "object",
+				"required": ["meta"],
+				"properties": { "meta": { "type": "ref", "ref": "land.evex.atratch.defs#projectMeta" } }
+			}
+		}
+	}
+}

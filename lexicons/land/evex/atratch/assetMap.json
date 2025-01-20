@@ -1,0 +1,29 @@
+{
+	"lexicon": 1,
+	"id": "land.evex.atratch.assetMap",
+	"defs": {
+		"main": {
+			"type": "record",
+			"description": "Record declaring a 'like' of a piece of subject content.",
+			"key": "tid",
+			"record": {
+				"type": "object",
+				"required": ["map"],
+				"properties": {
+					"map": {
+						"type": "array",
+						"items": { "type": "ref", "ref": "#assetPair" }
+					}
+				}
+			}
+		},
+		"assetPair": {
+			"type": "object",
+			"required": ["hash", "blob"],
+			"properties": {
+				"hash": { "type": "string", "description": "scratch's md5 hash" },
+				"blob": { "type": "blob" }
+			}
+		}
+	}
+}
