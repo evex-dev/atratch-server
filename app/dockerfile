@@ -7,7 +7,6 @@ RUN pnpm config set store-dir /tmp/pnpm/store
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml wait-for-it.sh ./
-RUN chmod 777 ./wait-for-it.sh
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile -r
 COPY . .
 RUN pnpm run build
