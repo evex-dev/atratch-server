@@ -8,11 +8,6 @@ esbuild
 		platform: "node",
 		format: "cjs",
 		target: "esnext",
-		external: [
-			...builtinModules, // Node.js 標準モジュール
-			...builtinModules.map((mod) => `node:${mod}`), // ESM対応
-			//"*", // すべてのモジュールを外部化
-		],
 		resolveExtensions: [".ts", ".js"],
 		logLevel: "info",
 		define: {

@@ -1,28 +1,17 @@
-FROM node:20-alpine AS base
+FROM node:20-alpine
 RUN apk add bash
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 RUN pnpm config set store-dir /tmp/pnpm/store
+
 WORKDIR /app
 COPY package.json pnpm-lock.yaml wait-for-it.sh ./
 RUN chmod 777 ./wait-for-it.sh
-
-RUN pnpm add -g prisma
-COPY prisma /app/prisma
-RUN prisma generate
-
-# FROM base AS prod-deps
-# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile -r -P
-
-FROM base AS build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile -r
 COPY . .
 RUN pnpm run build
 
-FROM base
-# COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/dist /app/dist
 EXPOSE 3000
 # RUN chown -R node /app
 # USER node

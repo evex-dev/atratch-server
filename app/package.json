@@ -10,7 +10,7 @@
 		"start:prod": "pnpm run migrate && pnpm run start",
 		"codegen": "sh -c 'lex gen-server ./src/appview/lexicon ../lexicons/com/atproto/*/* ../lexicons/land/evex/*/*'",
 		"typecheck": "tsc --noEmit",
-		"migrate": "pnpm prisma migrate deploy"
+		"migrate": "prisma migrate deploy"
 	},
 	"dependencies": {
 		"@atproto/api": "^0.13.25",
