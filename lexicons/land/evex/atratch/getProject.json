@@ -23,7 +23,7 @@
 					"required": ["project"],
 					"properties": {
 						"project": { "type": "ref", "ref": "land.evex.atratch.defs#projectView" },
-						"viewer": {"type":"ref","ref":"land.evex.atratch.defs#viewerState"}
+						"viewer": { "type": "ref", "ref": "land.evex.atratch.defs#viewerState" }
 					}
 				}
 			}
