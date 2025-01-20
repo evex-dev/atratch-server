@@ -1,17 +1,21 @@
+import { DidResolver, HandleResolver, MemoryCache } from "@atproto/identity";
 import { serve } from "@hono/node-server";
 import { PrismaClient } from "@prisma/client";
 import { Hono } from "hono";
-import appview from "./appview/index.js";
+import { appview } from "./appview";
 import { RedisClient } from "./db.js";
 import server from "./server/index.js";
 import type { appviewContext } from "./types.js";
 import { wellKnown } from "./well-known.js";
 
 const app = new Hono();
+const didResolver = new DidResolver({ plcUrl: "https://plc.directory", didCache: new MemoryCache() });
 const context: appviewContext = {
 	url: "atratch-api.evex.land",
 	redis: new RedisClient(),
 	postgres: new PrismaClient(),
+	didResolver,
+	handleResolver: new HandleResolver(),
 };
 app.get("/", (c) => {
 	return c.text(

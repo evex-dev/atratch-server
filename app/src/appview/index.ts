@@ -1,20 +1,28 @@
+import type { PrismaClient } from "@prisma/client";
 import type { appviewContext } from "../types";
-import { checkAuthFactory } from "./auth";
-import { createServer } from "./lexicon/index";
+import { addListeners } from "./listeners";
+import { server as createServer } from "./server";
+import { Sub } from "./sub";
 
-export default function server(ctx: appviewContext) {
-	// const server = new Hono();
-	const s = createServer();
-	const auth = checkAuthFactory({ ownDid: `did:web:${ctx.url}`, must: false });
-	s.land.evex.atratch.getProject({
-		auth,
-		handler: (c) => {
-			const you = c.auth.credentials?.iss;
-			const meta = { description: "test description", title: "test title" };
-			const assetMap = {};
-			const projectJson = {};
-			return { encoding: "application/json", body: { project: { meta, assetMap, like: 0, projectJson } } };
-		},
-	});
-	return s.xrpc.createApp();
+export function appview(ctx: appviewContext) {
+	const server = createServer(ctx);
+	startSub(ctx);
+	return server;
+}
+
+async function startSub(ctx: appviewContext) {
+	const oldCursor = (await getOrInitStatus(ctx.postgres)).cursor;
+	const sub = new Sub(createSaveCursor(ctx.postgres), oldCursor ?? undefined);
+	addListeners(ctx, sub);
+}
+
+async function getOrInitStatus(pg: PrismaClient) {
+	const status = await pg.status.findFirst({ where: { id: "self" } });
+	if (!status) {
+		return await pg.status.create({ data: { id: "self" } });
+	}
+	return status;
+}
+function createSaveCursor(pg: PrismaClient) {
+	return async (cursor: number) => void (await pg.status.update({ data: { cursor }, where: { id: "self" } }));
 }

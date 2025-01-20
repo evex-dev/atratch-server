@@ -41,6 +41,9 @@ importers:
       '@prisma/client':
         specifier: ^6.2.1
         version: 6.2.1(prisma@6.2.1)
+      '@skyware/jetstream':
+        specifier: ^0.2.2
+        version: 0.2.2(@atcute/client@2.0.7)
       express:
         specifier: ^4.21.2
         version: 4.21.2
@@ -56,6 +59,9 @@ importers:
       multiformats:
         specifier: ^13.3.1
         version: 13.3.1
+      ws:
+        specifier: ^8.18.0
+        version: 8.18.0
     devDependencies:
       '@atproto/lex-cli':
         specifier: ^0.5.4
@@ -69,6 +75,9 @@ importers:
       '@types/node':
         specifier: ^20.17.10
         version: 20.17.10
+      '@types/ws':
+        specifier: ^8.5.13
+        version: 8.5.13
       esbuild:
         specifier: ^0.24.2
         version: 0.24.2
@@ -83,6 +92,14 @@ importers:
         version: 5.7.2
 
 packages:
+
+  '@atcute/bluesky@1.0.12':
+    resolution: {integrity: sha512-oUM+MxD5asGYyQDOHBGay7f9ryhsBpQ8LTUmsEZvp4t/WG0ZV2AcFRWsG0DxB+CsmSTbP2DHLMZCatE3usmt+g==}
+    peerDependencies:
+      '@atcute/client': ^1.0.0 || ^2.0.0
+
+  '@atcute/client@2.0.7':
+    resolution: {integrity: sha512-bvNahrCGvhZw/EIx0HU/GOoKZEnUaAppbuZh7cu+VsOFA2tdFLnZJed9Hagh5Yz/eUX7QUh5NB4dRTRUdggSLQ==}
 
   '@atproto-labs/did-resolver@0.1.6':
     resolution: {integrity: sha512-qddGpcjKj9SUMlZW1d+/dY/03CDVcmOAlAozXEXsU2H5OT1vFAdMmOp0VbwK0y99RH3DvAQtyQKiRzoPFqp8rA==}
@@ -117,8 +134,11 @@ packages:
   '@atproto/common-web@0.3.1':
     resolution: {integrity: sha512-N7wiTnus5vAr+lT//0y8m/FaHHLJ9LpGuEwkwDAeV3LCiPif4m/FS8x/QOYrx1PdZQwKso95RAPzCGWQBH5j6Q==}
 
-  '@atproto/common@0.4.5':
-    resolution: {integrity: sha512-LFAGqHcxCI5+b31Xgk+VQQtZU258iGPpHJzNeHVcdh6teIKZi4C2l6YV+m+3CEz+yYcfP7jjUmgqesx7l9Arsg==}
+  '@atproto/common-web@0.3.2':
+    resolution: {integrity: sha512-Vx0JtL1/CssJbFAb0UOdvTrkbUautsDfHNOXNTcX2vyPIxH9xOameSqLLunM1hZnOQbJwyjmQCt6TV+bhnanDg==}
+
+  '@atproto/common@0.4.6':
+    resolution: {integrity: sha512-X33ZubLPrHLNur2Ln4tRP5TY0G0u/t9DyAeA5dgtTNGIXE3iJIlfiUSR0PW5s1iAvBbrrJK4BwaA2Pqsdl+RNw==}
 
   '@atproto/crypto@0.4.2':
     resolution: {integrity: sha512-aeOfPQYCDbhn2hV06oBF2KXrWjf/BK4yL8lfANJKSmKl3tKWCkiW/moi643rUXXxSE72KtWtQeqvNFYnnFJ0ig==}
@@ -603,6 +623,9 @@ packages:
   '@prisma/get-platform@6.2.1':
     resolution: {integrity: sha512-zp53yvroPl5m5/gXYLz7tGCNG33bhG+JYCm74ohxOq1pPnrL47VQYFfF3RbTZ7TzGWCrR3EtoiYMywUBw7UK6Q==}
 
+  '@skyware/jetstream@0.2.2':
+    resolution: {integrity: sha512-d1MtWPTIFEciSzV8OClXZCJoz0DJ7aupt4EZSwpGAASYG0ZIPmZTt7RVJkoFzQyqRPHAMD7CvEwu0ut3MHX1og==}
+
   '@ts-morph/common@0.17.0':
     resolution: {integrity: sha512-RMSSvSfs9kb0VzkvQ2NWobwnj7TxCA9vI/IjR9bDHqgAyVbu2T0DN4wiKVqomyDWqO7dPr/tErSfq7urQ1Q37g==}
 
@@ -644,6 +667,9 @@ packages:
 
   '@types/serve-static@1.15.7':
     resolution: {integrity: sha512-W8Ym+h8nhuRwaKPaDw34QUkwsGi6Rc4yYqvKFo5rm2FUEhCFbzVWrxXUxuKK8TASjWsysJY0nsmNCGhCOIsrOw==}
+
+  '@types/ws@8.5.13':
+    resolution: {integrity: sha512-osM/gWBTPKgHV8XkTunnegTRIsvF6owmf5w+JtAfOw472dptdm0dlGv4xCt6GwQRcC2XVOvvRE/0bAoQcL2QkA==}
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -853,6 +879,10 @@ packages:
   event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
+
+  event-target-shim@6.0.2:
+    resolution: {integrity: sha512-8q3LsZjRezbFZ2PN+uP+Q7pnHUMmAOziU2vA2OwoFaKIXxlxl38IylhSSgUorWu/rf4er67w0ikBqjBFk/pomA==}
+    engines: {node: '>=10.13.0'}
 
   events@3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
@@ -1093,6 +1123,9 @@ packages:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
 
+  partysocket@1.0.3:
+    resolution: {integrity: sha512-7sSojS4oCRK1Fe1h+Sa0Za5dwOf+M9VksQlynD8yqwGpLvnO4oxx9ppmOSeh6CJTMbF5gbnvUQKMK525QSBdBw==}
+
   path-browserify@1.0.1:
     resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
@@ -1320,6 +1353,12 @@ packages:
 
 snapshots:
 
+  '@atcute/bluesky@1.0.12(@atcute/client@2.0.7)':
+    dependencies:
+      '@atcute/client': 2.0.7
+
+  '@atcute/client@2.0.7': {}
+
   '@atproto-labs/did-resolver@0.1.6':
     dependencies:
       '@atproto-labs/fetch': 0.1.2
@@ -1389,9 +1428,16 @@ snapshots:
       uint8arrays: 3.0.0
       zod: 3.24.1
 
-  '@atproto/common@0.4.5':
+  '@atproto/common-web@0.3.2':
     dependencies:
-      '@atproto/common-web': 0.3.1
+      graphemer: 1.4.0
+      multiformats: 9.9.0
+      uint8arrays: 3.0.0
+      zod: 3.24.1
+
+  '@atproto/common@0.4.6':
+    dependencies:
+      '@atproto/common-web': 0.3.2
       '@ipld/dag-cbor': 7.0.3
       cbor-x: 1.6.0
       iso-datestring-validator: 2.2.2
@@ -1486,7 +1532,7 @@ snapshots:
 
   '@atproto/xrpc-server@0.7.4':
     dependencies:
-      '@atproto/common': 0.4.5
+      '@atproto/common': 0.4.6
       '@atproto/crypto': 0.4.2
       '@atproto/lexicon': 0.4.4
       '@atproto/xrpc': 0.6.5
@@ -1774,6 +1820,13 @@ snapshots:
     dependencies:
       '@prisma/debug': 6.2.1
 
+  '@skyware/jetstream@0.2.2(@atcute/client@2.0.7)':
+    dependencies:
+      '@atcute/bluesky': 1.0.12(@atcute/client@2.0.7)
+      partysocket: 1.0.3
+    transitivePeerDependencies:
+      - '@atcute/client'
+
   '@ts-morph/common@0.17.0':
     dependencies:
       fast-glob: 3.3.2
@@ -1834,6 +1887,10 @@ snapshots:
       '@types/http-errors': 2.0.4
       '@types/node': 20.17.10
       '@types/send': 0.17.4
+
+  '@types/ws@8.5.13':
+    dependencies:
+      '@types/node': 20.17.10
 
   abort-controller@3.0.0:
     dependencies:
@@ -2078,6 +2135,8 @@ snapshots:
   etag@1.8.1: {}
 
   event-target-shim@5.0.1: {}
+
+  event-target-shim@6.0.2: {}
 
   events@3.3.0: {}
 
@@ -2326,6 +2385,10 @@ snapshots:
       ee-first: 1.1.1
 
   parseurl@1.3.3: {}
+
+  partysocket@1.0.3:
+    dependencies:
+      event-target-shim: 6.0.2
 
   path-browserify@1.0.1: {}
 

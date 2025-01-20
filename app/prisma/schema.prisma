@@ -3,10 +3,35 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url = env("POSTGRES_URL")
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
 }
 
-model test {
-    id  Int @id
+model Project {
+  user        String
+  rkey        String
+  title       String
+  description String
+  projectJson Json
+  assetMap    Json
+  like        Like[]   @relation(name: "like")
+  createdAt   DateTime
+
+  @@id([user, rkey])
+}
+
+model Like {
+  subjectUser String /* did */
+  subjectKey  String /* rkey */
+  user        String /* did */
+  key         String /* rkey */
+  createdAt   DateTime
+  project     Project  @relation(name: "like", fields: [subjectUser, subjectKey], references: [user, rkey])
+
+  @@id([user, subjectUser, subjectKey])
+}
+
+model status {
+  id     String @id
+  cursor Int?
 }
