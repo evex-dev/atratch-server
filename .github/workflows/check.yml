@@ -44,7 +44,7 @@ jobs:
         run: pnpm install
 
       - name: generate prisma(for typecheck)
-        run: pnpm --prefix ./app run generate
+        run: pnpm run generate
 
       - name: Biome
         #if: ${{ success() || failure() }}
