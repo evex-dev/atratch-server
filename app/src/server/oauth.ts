@@ -1,18 +1,17 @@
 import { Agent } from "@atproto/api";
-import { JoseKey } from "@atproto/jwk-jose";
-import { NodeOAuthClient, type NodeSavedSession, type NodeSavedState } from "@atproto/oauth-client-node";
-import { Hono } from "hono";
 import {
-	JwtHeader,
-	JwtPayload as atpJwtPayload,
+	type JwtHeader,
 	JwtVerifyError,
 	Key,
-	SignedJwt,
-	VerifyOptions,
-	VerifyResult,
-	RequiredKey,
+	type RequiredKey,
+	type SignedJwt,
+	type VerifyOptions,
+	type VerifyResult,
+	type JwtPayload as atpJwtPayload,
 } from "@atproto/jwk";
-import { sign, verify, JwtPayload } from "jsonwebtoken";
+import { NodeOAuthClient, type NodeSavedSession, type NodeSavedState } from "@atproto/oauth-client-node";
+import { Hono } from "hono";
+import { type JwtPayload, sign, verify } from "jsonwebtoken";
 const key = new (class extends Key {
 	async createJwt(header: JwtHeader, payload: atpJwtPayload): Promise<SignedJwt> {
 		return sign(payload, { key: this.jwk, format: "jwk" }, { header }) as SignedJwt;
