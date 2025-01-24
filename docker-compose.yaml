@@ -2,7 +2,7 @@ services:
   postgres:
     container_name: postgres-db
     image: postgres:17-alpine
-    restart: always
+    restart: unless-stopped
     ports:
       - "5432:5432"
     volumes:
@@ -14,7 +14,7 @@ services:
   redis:
     container_name: redis-db
     image: redis:7-alpine
-    restart: always
+    restart: unless-stopped
     # ports:
     #   - "6379:6379"
     command: ["redis-server", "--requirepass","${REDIS_PASSWORD}"]
@@ -23,7 +23,7 @@ services:
   app:
     container_name: app
     command: bash -c "./wait-for-it.sh postgres:5432 && pnpm run start:prod"
-    restart: always
+    restart: unless-stopped
     build: ./app/
     ports:
       - 3000:3000
