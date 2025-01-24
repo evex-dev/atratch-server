@@ -10,7 +10,7 @@ esbuild
 		resolveExtensions: [".ts", ".js"],
 		logLevel: "info",
 		define: {
-			"process.env.BUILD_TIMESTAMP": JSON.stringify(new Date().toLocaleString("ja")),
+			"process.env.BUILD_TIMESTAMP": new Date().toLocaleString("ja", { timeZone: "Japan" }),
 		},
 	})
 	.catch(() => process.exit(1));
