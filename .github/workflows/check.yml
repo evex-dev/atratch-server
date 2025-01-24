@@ -43,6 +43,9 @@ jobs:
       - name: Install Deps
         run: pnpm install
 
+      - name: generate prisma(for typecheck)
+        run: pnpm --prefix ./app run generate
+
       - name: Biome
         #if: ${{ success() || failure() }}
         if: ${{ !cancelled() }}
