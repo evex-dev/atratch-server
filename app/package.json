@@ -16,10 +16,10 @@
 	"dependencies": {
 		"@atproto/api": "^0.13.25",
 		"@atproto/crypto": "^0.4.2",
-		"@atproto/identity": "^0.4.3",
+		"@atproto/identity": "^0.4.5",
 		"@atproto/jwk-jose": "^0.1.2",
 		"@atproto/lexicon": "^0.4.4",
-		"@atproto/oauth-client-node": "^0.2.5",
+		"@atproto/oauth-client-node": "^0.2.8",
 		"@atproto/xrpc": "^0.6.5",
 		"@atproto/xrpc-server": "^0.7.4",
 		"@evex/xrpc-hono": "npm:@jsr/evex__xrpc-hono@^0.2.4",
