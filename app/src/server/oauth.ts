@@ -2,7 +2,52 @@ import { Agent } from "@atproto/api";
 import { JoseKey } from "@atproto/jwk-jose";
 import { NodeOAuthClient, type NodeSavedSession, type NodeSavedState } from "@atproto/oauth-client-node";
 import { Hono } from "hono";
-
+import {
+	JwtHeader,
+	JwtPayload as atpJwtPayload,
+	JwtVerifyError,
+	Key,
+	SignedJwt,
+	VerifyOptions,
+	VerifyResult,
+	RequiredKey,
+} from "@atproto/jwk";
+import { sign, verify, JwtPayload } from "jsonwebtoken";
+const key = new (class extends Key {
+	async createJwt(header: JwtHeader, payload: atpJwtPayload): Promise<SignedJwt> {
+		return sign(payload, { key: this.jwk, format: "jwk" }, { header }) as SignedJwt;
+	}
+	async verifyJwt<C extends string = never>(token: SignedJwt, options?: VerifyOptions<C>): Promise<VerifyResult<C>> {
+		const res = verify(
+			token,
+			{ key: this.jwk, format: "jwk" },
+			{
+				complete: true,
+				audience: options?.audience?.slice(),
+				clockTolerance: options?.clockTolerance,
+				issuer: options?.issuer?.slice(),
+				maxAge: options?.maxTokenAge,
+				subject: options?.subject,
+			},
+		);
+		const payload: JwtPayload = typeof res.payload === "string" ? JSON.parse(res.payload) : res.payload;
+		if (options?.requiredClaims) {
+			for (const op of options.requiredClaims) {
+				if (payload[op] == null) throw new JwtVerifyError(`${op} not found in jwt`);
+			}
+		}
+		const aud: string | [string, ...string[]] | undefined = Array.isArray(payload.aud)
+			? [payload.aud[0], ...payload.aud.slice(1)]
+			: payload.aud;
+		const payload2 = { ...payload, aud } as RequiredKey<atpJwtPayload, C>;
+		const x5u = Array.isArray(res.header.x5u) ? res.header.x5u[0] : res.header.x5u;
+		const x5c = typeof res.header.x5c === "string" ? [res.header.x5c] : res.header.x5c;
+		return {
+			payload: payload2,
+			protectedHeader: { ...res.header, x5u, x5c },
+		};
+	}
+})(JSON.parse(process.env.OAUTH_PRIVATE_KEY ?? ""));
 const client = new NodeOAuthClient({
 	// This object will be used to build the payload of the /client-metadata.json
 	// endpoint metadata, exposing the client metadata to the OAuth server.
@@ -23,7 +68,7 @@ const client = new NodeOAuthClient({
 		jwks_uri: "https://my-app.com/jwks.json",
 	},
 
-	keyset: await Promise.all([JoseKey.fromImportable(process.env.OAUTH_PRIVATE_KEY ?? "")]),
+	keyset: [key],
 
 	// Interface to store authorization state data (during authorization flows)
 	stateStore: {

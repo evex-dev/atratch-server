@@ -2,3 +2,6 @@
 .vscode
 vscode-*
 *.code-workspace
+
+*.pem
+*.jwk
