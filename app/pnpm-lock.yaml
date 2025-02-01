@@ -70,8 +70,8 @@ importers:
         version: 8.18.0
     devDependencies:
       '@atproto/lex-cli':
-        specifier: ^0.5.4
-        version: 0.5.4
+        specifier: ^0.5.6
+        version: 0.5.6
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
@@ -170,8 +170,8 @@ packages:
   '@atproto/jwk@0.1.2':
     resolution: {integrity: sha512-VTQOPaXevW42PQNUD6xJSa6BSjJKKz2DmJqaBP1TkCnLQSr1iU04yyvBSPijQpvWaZWnPnn06NQiorsv7INX6Q==}
 
-  '@atproto/lex-cli@0.5.4':
-    resolution: {integrity: sha512-mNEPeQLXl3iCXPO/FSo0BTfP00lx+9xEQpf9LEpDuKA6WCWjIB7WHzU2VLk26NSftzH3sf6zf+A2yZ+WWRbYpw==}
+  '@atproto/lex-cli@0.5.6':
+    resolution: {integrity: sha512-3XMZLoZ4PST84qj+MBC2yyg9CjR10suFt0dkWAUTnaJw5wffaBhm9reUqDAEmf+Gjxq1CAuCZ+ge7FNFd8S1/A==}
     hasBin: true
 
   '@atproto/lexicon@0.4.4':
@@ -916,16 +916,16 @@ packages:
     resolution: {integrity: sha512-28HqgMZAmih1Czt9ny7qr6ek2qddF4FclbMzwhCREB6OFfH+rXAnuNCwo1/wFvrtbgsQDb4kSbX9de9lFbrXnA==}
     engines: {node: '>= 0.10.0'}
 
-  fast-glob@3.3.2:
-    resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
+  fast-glob@3.3.3:
+    resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
 
   fast-redact@3.5.0:
     resolution: {integrity: sha512-dwsoQlS7h9hMeYUq1W++23NDcBLV4KqONnITDV9DjfS3q1SgDGVrBdvvTLUotWtPSD7asWDV9/CmsZPy8Hf70A==}
     engines: {node: '>=6'}
 
-  fastq@1.18.0:
-    resolution: {integrity: sha512-QKHXPW0hD8g4UET03SdOdunzSouc9N4AuHdsX8XNcTsuz+yYFILVNIX4l9yHABMhiEI9Db0JTTIpu0wB+Y1QQw==}
+  fastq@1.19.0:
+    resolution: {integrity: sha512-7SFSRCNjBQIZH/xZR3iy5iQYR8aGBE0h3VG6/cwlbrpdciNYBMotQav8c1XI3HjHH+NikUpP53nPdlZSdWmFzA==}
 
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
@@ -1528,9 +1528,9 @@ snapshots:
       multiformats: 9.9.0
       zod: 3.24.1
 
-  '@atproto/lex-cli@0.5.4':
+  '@atproto/lex-cli@0.5.6':
     dependencies:
-      '@atproto/lexicon': 0.4.4
+      '@atproto/lexicon': 0.4.5
       '@atproto/syntax': 0.3.1
       chalk: 4.1.2
       commander: 9.5.0
@@ -1863,7 +1863,7 @@ snapshots:
   '@nodelib/fs.walk@1.2.8':
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
-      fastq: 1.18.0
+      fastq: 1.19.0
 
   '@prisma/client@6.2.1(prisma@6.2.1)':
     optionalDependencies:
@@ -1899,7 +1899,7 @@ snapshots:
 
   '@ts-morph/common@0.17.0':
     dependencies:
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       minimatch: 5.1.6
       mkdirp: 1.0.4
       path-browserify: 1.0.1
@@ -2244,7 +2244,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  fast-glob@3.3.2:
+  fast-glob@3.3.3:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
       '@nodelib/fs.walk': 1.2.8
@@ -2254,7 +2254,7 @@ snapshots:
 
   fast-redact@3.5.0: {}
 
-  fastq@1.18.0:
+  fastq@1.19.0:
     dependencies:
       reusify: 1.0.4
 
