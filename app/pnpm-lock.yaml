@@ -70,8 +70,8 @@ importers:
         version: 8.18.0
     devDependencies:
       '@atproto/lex-cli':
-        specifier: ^0.5.4
-        version: 0.5.4
+        specifier: ^0.6.1
+        version: 0.6.1
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
@@ -146,6 +146,9 @@ packages:
   '@atproto/common-web@0.3.2':
     resolution: {integrity: sha512-Vx0JtL1/CssJbFAb0UOdvTrkbUautsDfHNOXNTcX2vyPIxH9xOameSqLLunM1hZnOQbJwyjmQCt6TV+bhnanDg==}
 
+  '@atproto/common-web@0.4.0':
+    resolution: {integrity: sha512-ZYL0P9myHybNgwh/hBY0HaBzqiLR1B5/ie5bJpLQAg0whRzNA28t8/nU2vh99tbsWcAF0LOD29M8++LyENJLNQ==}
+
   '@atproto/common@0.4.6':
     resolution: {integrity: sha512-X33ZubLPrHLNur2Ln4tRP5TY0G0u/t9DyAeA5dgtTNGIXE3iJIlfiUSR0PW5s1iAvBbrrJK4BwaA2Pqsdl+RNw==}
 
@@ -170,15 +173,16 @@ packages:
   '@atproto/jwk@0.1.2':
     resolution: {integrity: sha512-VTQOPaXevW42PQNUD6xJSa6BSjJKKz2DmJqaBP1TkCnLQSr1iU04yyvBSPijQpvWaZWnPnn06NQiorsv7INX6Q==}
 
-  '@atproto/lex-cli@0.5.4':
-    resolution: {integrity: sha512-mNEPeQLXl3iCXPO/FSo0BTfP00lx+9xEQpf9LEpDuKA6WCWjIB7WHzU2VLk26NSftzH3sf6zf+A2yZ+WWRbYpw==}
+  '@atproto/lex-cli@0.6.1':
+    resolution: {integrity: sha512-fUZSx/l8J50Nxe9J/bF996PjV79oUmkShNewNvbuYgsOVZJtO3gu9jPMYX8+bhJ4eQkCwHbm8edVQDJx5rW3eg==}
+    engines: {node: '>=18.7.0'}
     hasBin: true
 
   '@atproto/lexicon@0.4.4':
     resolution: {integrity: sha512-QFEmr3rpj/RoAmfX9ALU/asBG/rsVtQZnw+9nOB1/AuIwoxXd+ZyndR6lVUc2+DL4GEjl6W2yvBru5xbQIZWyA==}
 
-  '@atproto/lexicon@0.4.5':
-    resolution: {integrity: sha512-fljWqMGKn+XWtTprBcS3F1hGBREnQYh6qYHv2sjENucc7REms1gtmZXSerB9N6pVeHVNOnXiILdukeAcic5OEw==}
+  '@atproto/lexicon@0.4.7':
+    resolution: {integrity: sha512-/x6h3tAiDNzSi4eXtC8ke65B7UzsagtlGRHmUD95698x5lBRpDnpizj0fZWTZVYed5qnOmz/ZEue+v3wDmO61g==}
 
   '@atproto/oauth-client-node@0.2.8':
     resolution: {integrity: sha512-EHxdfNpRvwnlxHFCYjl5+ckmPKwYe/jSMN2RksudrSg/XivRzJisgBMOsQ2FnuXIiC9eh4HZ+MrxnoEpT20tDA==}
@@ -191,6 +195,9 @@ packages:
 
   '@atproto/syntax@0.3.1':
     resolution: {integrity: sha512-fzW0Mg1QUOVCWUD3RgEsDt6d1OZ6DdFmbKcDdbzUfh0t4rhtRAC05KbZYmxuMPWDAiJ4BbbQ5dkAc/mNypMXkw==}
+
+  '@atproto/syntax@0.3.3':
+    resolution: {integrity: sha512-F1LZweesNYdBbZBXVa72N/cSvchG8Q1tG4/209ZXbIuM3FwQtkgn+zgmmV4P4ORmhOeXPBNXvMBpcqiwx/gEQQ==}
 
   '@atproto/xrpc-server@0.7.4':
     resolution: {integrity: sha512-MrAwxfJBQm/kCol3D8qc+vpQzBMzLqvtUbauSSfVVJ10PlGtxg4LlXqcjkAuhrjyrqp3dQH9LHuhDpgVQK+G3w==}
@@ -916,16 +923,16 @@ packages:
     resolution: {integrity: sha512-28HqgMZAmih1Czt9ny7qr6ek2qddF4FclbMzwhCREB6OFfH+rXAnuNCwo1/wFvrtbgsQDb4kSbX9de9lFbrXnA==}
     engines: {node: '>= 0.10.0'}
 
-  fast-glob@3.3.2:
-    resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
+  fast-glob@3.3.3:
+    resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
 
   fast-redact@3.5.0:
     resolution: {integrity: sha512-dwsoQlS7h9hMeYUq1W++23NDcBLV4KqONnITDV9DjfS3q1SgDGVrBdvvTLUotWtPSD7asWDV9/CmsZPy8Hf70A==}
     engines: {node: '>=6'}
 
-  fastq@1.18.0:
-    resolution: {integrity: sha512-QKHXPW0hD8g4UET03SdOdunzSouc9N4AuHdsX8XNcTsuz+yYFILVNIX4l9yHABMhiEI9Db0JTTIpu0wB+Y1QQw==}
+  fastq@1.19.1:
+    resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
 
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
@@ -1188,8 +1195,8 @@ packages:
     resolution: {integrity: sha512-ip4qdzjkAyDDZklUaZkcRFb2iA118H9SgRh8yzTkSQK8HilsOJF7rSY8HoW5+I0M46AZgX/pxbprf2vvzQCE0Q==}
     hasBin: true
 
-  prettier@3.4.2:
-    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
+  prettier@3.5.2:
+    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -1256,8 +1263,8 @@ packages:
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
 
-  reusify@1.0.4:
-    resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
+  reusify@1.1.0:
+    resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
   run-parallel@1.2.0:
@@ -1398,6 +1405,9 @@ packages:
   zod@3.24.1:
     resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
+  zod@3.24.2:
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+
 snapshots:
 
   '@atcute/bluesky@1.0.12(@atcute/client@2.0.7)':
@@ -1413,7 +1423,7 @@ snapshots:
       '@atproto-labs/simple-store': 0.1.1
       '@atproto-labs/simple-store-memory': 0.1.1
       '@atproto/did': 0.1.3
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto-labs/fetch-node@0.1.6':
     dependencies:
@@ -1427,7 +1437,7 @@ snapshots:
     dependencies:
       '@atproto-labs/pipe': 0.1.0
     optionalDependencies:
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto-labs/handle-resolver-node@0.1.11':
     dependencies:
@@ -1440,7 +1450,7 @@ snapshots:
       '@atproto-labs/simple-store': 0.1.1
       '@atproto-labs/simple-store-memory': 0.1.1
       '@atproto/did': 0.1.3
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto-labs/identity-resolver@0.1.10':
     dependencies:
@@ -1473,14 +1483,21 @@ snapshots:
       graphemer: 1.4.0
       multiformats: 9.9.0
       uint8arrays: 3.0.0
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/common-web@0.3.2':
     dependencies:
       graphemer: 1.4.0
       multiformats: 9.9.0
       uint8arrays: 3.0.0
-      zod: 3.24.1
+      zod: 3.24.2
+
+  '@atproto/common-web@0.4.0':
+    dependencies:
+      graphemer: 1.4.0
+      multiformats: 9.9.0
+      uint8arrays: 3.0.0
+      zod: 3.24.2
 
   '@atproto/common@0.4.6':
     dependencies:
@@ -1505,7 +1522,7 @@ snapshots:
 
   '@atproto/did@0.1.3':
     dependencies:
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/identity@0.4.5':
     dependencies:
@@ -1521,23 +1538,23 @@ snapshots:
     dependencies:
       '@atproto/jwk': 0.1.2
       '@atproto/jwk-jose': 0.1.3
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/jwk@0.1.2':
     dependencies:
       multiformats: 9.9.0
       zod: 3.24.1
 
-  '@atproto/lex-cli@0.5.4':
+  '@atproto/lex-cli@0.6.1':
     dependencies:
-      '@atproto/lexicon': 0.4.4
-      '@atproto/syntax': 0.3.1
+      '@atproto/lexicon': 0.4.7
+      '@atproto/syntax': 0.3.3
       chalk: 4.1.2
       commander: 9.5.0
-      prettier: 3.4.2
+      prettier: 3.5.2
       ts-morph: 16.0.0
       yesno: 0.4.0
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/lexicon@0.4.4':
     dependencies:
@@ -1547,13 +1564,13 @@ snapshots:
       multiformats: 9.9.0
       zod: 3.24.1
 
-  '@atproto/lexicon@0.4.5':
+  '@atproto/lexicon@0.4.7':
     dependencies:
-      '@atproto/common-web': 0.3.2
-      '@atproto/syntax': 0.3.1
+      '@atproto/common-web': 0.4.0
+      '@atproto/syntax': 0.3.3
       iso-datestring-validator: 2.2.2
       multiformats: 9.9.0
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/oauth-client-node@0.2.8':
     dependencies:
@@ -1580,14 +1597,16 @@ snapshots:
       '@atproto/oauth-types': 0.2.2
       '@atproto/xrpc': 0.6.6
       multiformats: 9.9.0
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/oauth-types@0.2.2':
     dependencies:
       '@atproto/jwk': 0.1.2
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@atproto/syntax@0.3.1': {}
+
+  '@atproto/syntax@0.3.3': {}
 
   '@atproto/xrpc-server@0.7.4':
     dependencies:
@@ -1615,8 +1634,8 @@ snapshots:
 
   '@atproto/xrpc@0.6.6':
     dependencies:
-      '@atproto/lexicon': 0.4.5
-      zod: 3.24.1
+      '@atproto/lexicon': 0.4.7
+      zod: 3.24.2
 
   '@biomejs/biome@1.9.4':
     optionalDependencies:
@@ -1863,7 +1882,7 @@ snapshots:
   '@nodelib/fs.walk@1.2.8':
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
-      fastq: 1.18.0
+      fastq: 1.19.1
 
   '@prisma/client@6.2.1(prisma@6.2.1)':
     optionalDependencies:
@@ -1899,7 +1918,7 @@ snapshots:
 
   '@ts-morph/common@0.17.0':
     dependencies:
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       minimatch: 5.1.6
       mkdirp: 1.0.4
       path-browserify: 1.0.1
@@ -2244,7 +2263,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  fast-glob@3.3.2:
+  fast-glob@3.3.3:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
       '@nodelib/fs.walk': 1.2.8
@@ -2254,9 +2273,9 @@ snapshots:
 
   fast-redact@3.5.0: {}
 
-  fastq@1.18.0:
+  fastq@1.19.1:
     dependencies:
-      reusify: 1.0.4
+      reusify: 1.1.0
 
   fill-range@7.1.1:
     dependencies:
@@ -2515,7 +2534,7 @@ snapshots:
       sonic-boom: 3.8.1
       thread-stream: 2.7.0
 
-  prettier@3.4.2: {}
+  prettier@3.5.2: {}
 
   prisma@6.2.1:
     dependencies:
@@ -2575,7 +2594,7 @@ snapshots:
 
   resolve-pkg-maps@1.0.0: {}
 
-  reusify@1.0.4: {}
+  reusify@1.1.0: {}
 
   run-parallel@1.2.0:
     dependencies:
@@ -2714,3 +2733,5 @@ snapshots:
   yesno@0.4.0: {}
 
   zod@3.24.1: {}
+
+  zod@3.24.2: {}
